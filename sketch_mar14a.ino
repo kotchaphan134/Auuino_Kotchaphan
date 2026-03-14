@@ -37,19 +37,19 @@ void loop() {
   myServo.write(angle);
 
   // 3. แปลงองศามอเตอร์ให้เป็นเปอร์เซ็นต์ (0-100%)
-  percent = map(angle, 0, 180, 0, 100);
+  percent = map(angle, 0, 180, 100, 0);
 
   // 4. แสดงผลบรรทัดบน (ค่าแสง)
   lcd.setCursor(0, 0);
   lcd.print("Sun: ");
   lcd.print(lightVal);
-  lcd.print("   "); 
+  lcd.print("   "); // เคาะสเปซบาร์ลบเลขเก่า
 
   // 5. แสดงผลบรรทัดล่าง (เปอร์เซ็นต์การเปิดม่าน)
   lcd.setCursor(0, 1);
   lcd.print("Open: ");
   lcd.print(percent);
-  lcd.print("%   "); 
+  lcd.print("%   "); // เคาะสเปซบาร์ลบเลขเก่า
 
   // 6. หน่วงเวลาไม่ให้จอทำงานหนักไป
   delay(200);
